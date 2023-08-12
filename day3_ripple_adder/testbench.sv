@@ -15,19 +15,22 @@ module test_rip_fa ();
     $dumpfile("file.vcd");
     $dumpvars(1);
     
-    //generate 
+    // generate 
     for(int i=0; i<8; i++) begin
       a=$urandom_range(4'd0, 4'd15);
       b=$urandom_range(4'd0, 4'd15);
       cin = $urandom_range(1'b0, 1'b1);
-        
+       
+      #10;
+      
       $display("i=%d, a=%d, b=%d, cin=%d, cout =%d, sum =%d", i, a,b,cin,cout,sum);
-        #10;
+        
         
       end
       
     //endgenerate
-   
+
+
     $finish();
     
   end
