@@ -11,7 +11,7 @@ module test_gray_conv();
     $dumpfile("file.vcd");
     $dumpvars(1);
     
-    for (int i=0; i<4; i++) begin
+    for (int i=0; i<15; i++) begin
       bin = i;
       #5;
       $display("bin=%b, gray=%b",bin,gray);
