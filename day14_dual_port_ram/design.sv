@@ -2,7 +2,7 @@
 
 `include "single_port_ram.sv"
 
-module dual_port_ram #(parameter dsize = 8, dwith = 8) (
+module dual_port_ram (
   input clk, nrst, ce, we_a, we_b, 
   input [dwith-1:0]din_a, adr_a, din_b, adr_b,
   output reg [dwith-1 :0]dout_a, dout_b);

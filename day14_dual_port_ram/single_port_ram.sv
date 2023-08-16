@@ -1,5 +1,8 @@
 // Code your design here
-module single_port_ram #(parameter dsize = 8, dwith = 8) (
+parameter dsize = 8; 
+parameter dwith = 8;
+
+module single_port_ram (
   input clk, nrst, ce, we, 
   input [dwith-1:0]din, adr,
   output reg [dwith-1 :0]dout);
