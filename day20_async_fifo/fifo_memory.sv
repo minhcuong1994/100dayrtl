@@ -9,7 +9,8 @@ module fifo_memory #(parameter dw=8, ps=4) (
   
   always_ff @(posedge wclk) begin
     if (wren) fifo[waddr] <= wdata;  
-    rdata <= fifo[raddr];
   end
+  
+  assign  rdata = fifo[raddr];
 
 endmodule

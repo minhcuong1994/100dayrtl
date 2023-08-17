@@ -10,8 +10,8 @@ module fifo_tb #(parameter dw=8, ps=4) ();
   
   async_fifo a_fifo(.*);
   
-  always #1 wclk <= ~wclk;
-  always #2 rclk <= ~rclk;
+  always #3 wclk <= ~wclk;
+  always #1 rclk <= ~rclk;
   
   
   
@@ -31,14 +31,16 @@ module fifo_tb #(parameter dw=8, ps=4) ();
     #4;
     
     winc = 1;
-    rinc = 1;
+    rinc = 0;
+   
     
-    for (int i=0; i<10; i++) begin
+    for (int i=0; i<20; i++) begin
       wdata = i;
       #4;
+      if (i==17) rinc = 1;
     end
     
-    #10;
+    #30;
     
     
     

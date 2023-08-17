@@ -23,7 +23,7 @@ module write_full_handler #(parameter ps=4) (
   end
   
   assign waddr = b_wptr[ps-1:0];
-  assign b_wptr_next = b_wptr + (winc & ~wfull);
+  assign b_wptr_next = b_wptr + (winc & !wfull);
   
   //convert to gray
   assign g_wptr_next = (b_wptr_next>>1) ^ b_wptr_next;

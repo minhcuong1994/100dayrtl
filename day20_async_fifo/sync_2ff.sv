@@ -5,8 +5,14 @@ module sync_2ff #(parameter ps=4) (
     
   reg [ps:0]q1_ptr;
   always_ff @(posedge clk, negedge nrst) begin
-    if(~nrst) {q2_ptr, q1_ptr} <= 0;
-    else {q2_ptr, q1_ptr} = {q1_ptr, ptr};
+    if(~nrst) begin
+      q1_ptr <= '0;
+      q2_ptr <= '0;
+    end
+    else begin
+      q1_ptr <= ptr;
+      q2_ptr <= q1_ptr;
+    end
   end
 
 endmodule

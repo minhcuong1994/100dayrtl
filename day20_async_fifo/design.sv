@@ -15,8 +15,8 @@ module async_fifo #(parameter dw=8, ps=4) (
   reg [ps:0]wptr, rptr, wq2_rptr, rq2_wptr;
   reg [ps-1:0]waddr, raddr;
     
-  wire wren;    
-  assign wren = ~wfull & winc;
+  logic wren;    
+  assign wren = !wfull & winc;
 
   sync_2ff w2r(rrst_n, rclk, wptr, rq2_wptr);
   sync_2ff r2w(wrst_n, wclk, rptr, wq2_rptr);
